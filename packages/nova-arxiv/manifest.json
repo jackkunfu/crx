@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "CRXJS Vue Vite Example",
+  "description": "CRXJS Vue Vite Example",
+  "version": "1.0.0",
+  "action": { "default_popup": "src/popup/popup.html" },
+  "options_page": "src/options/options.html",
+  "background": { "service_worker": "src/background/index.ts" },
+  "permissions": ["activeTab", "storage"],
+  "content_scripts": [
+    {
+      "js": [
+        "src/content-scripts/index.ts"
+      ],
+      "matches": [
+        "https://*.baidu.com/*"
+      ],
+      "all_frames": true,
+      "run_at": "document_end",
+      "match_about_blank": true
+    }
+  ]
+}

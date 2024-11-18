@@ -1,0 +1,7 @@
+# pnpm-workspace.yaml
+# URL_ADDRESS# https://pnpm.io/
+# URL_ADDRESSpm.io/workspaces
+# URL_ADDRESSpm.io/workspaces#workspace-package-dependencies
+
+packages:
+ - 'packages/**'

@@ -1,0 +1,20 @@
+{
+  "name": "crx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "s": "node run.js",
+    "dev": "node run.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cross-spawn": "^7.0.5",
+    "inquirer": "^12.1.0"
+  },
+  "devDependencies": {}
+}
