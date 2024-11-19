@@ -33,6 +33,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
+      'crx_request': resolve(__dirname, '../crx_request')
     },
   },
 

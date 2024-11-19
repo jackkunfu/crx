@@ -5,8 +5,17 @@
   "version": "1.0.0",
   "action": { "default_popup": "src/popup/popup.html" },
   "options_page": "src/options/options.html",
-  "background": { "service_worker": "src/background/index.ts" },
-  "permissions": ["activeTab", "storage"],
+  "background": {
+    "service_worker": "src/background/index.ts",
+    "type": "module"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://nova-test.scietrain.com/*"
+  ],
   "content_scripts": [
     {
       "js": [
