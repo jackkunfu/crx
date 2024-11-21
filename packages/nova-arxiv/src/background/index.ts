@@ -3,9 +3,10 @@ import request from 'crx_request'
 
 // 处理来自 content script 的消息
 chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
+  
   const { type, data } = message
   if (type === 'req') {
-    let res = await request(data, sendResponse);
+    let res = await request(data);
     sendResponse(res)
     return true
   }
@@ -13,11 +14,19 @@ chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
     chrome.storage.local.set(data)
     return true // 需要返回 true 来保持消息通道开启
   }
+
+  console.log(sender);
 });
 
 // tab 监听
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (changeInfo.status == 'complete') {
     chrome.tabs.sendMessage(tabId, { changeInfo, tab, message: 'injectEntry' })
+    .then(response => {
+        console.log('Response from content script:', response);
+    })
+    .catch(error => {
+        console.error('Error sending message:', error);
+    });
   }
 })

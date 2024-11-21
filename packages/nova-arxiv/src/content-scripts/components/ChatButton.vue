@@ -5,7 +5,10 @@
 </template>
 
 <script setup lang="ts">
+import { login } from '../api'
+
 const toggleChat = () => {
+  if (!chrome.storage.local.get('token')) return login({})
   window.dispatchEvent(new CustomEvent('toggleChat'))
 }
 </script>

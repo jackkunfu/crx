@@ -10,6 +10,7 @@
     "paths": {
       "@/*": ["src/*"],
       "crx_request/*": ["../packages/crx_request/*"]
-    }
+    },
+    "types": ["chrome"]
   }
 }

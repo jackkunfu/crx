@@ -1,12 +1,13 @@
 import { ResultEnum, ContentTypeEnum } from './httpEnum'
+// import chrome from 'chrome-promise'
 
 const baseURL = import.meta.env.VITE_APP_API_URL as string | undefined
 const source = import.meta.env.VITE_REQUEST_SOURCE as string | undefined
 type Param = {
   method: string
   url: string
-  headers?: Record<string, string>
-  data?: Record<string, any>
+  headers?: any
+  data?: any
 }
 export default async ({ method, url, headers = {}, data = {} }: Param) => {
   const config = {

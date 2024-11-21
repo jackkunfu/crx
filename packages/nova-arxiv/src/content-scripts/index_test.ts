@@ -1,5 +1,5 @@
 console.log('this is content script');
-import { getList } from './api'
+import { login } from './api'
 import { load } from '@fingerprintjs/fingerprintjs'
 
 // 创建并添加聊天按钮
@@ -82,11 +82,11 @@ async function handleChatButtonClick() {
     const pageContent = getPageContent();
 
     // 发送消息给 background script
-    const response = await getList(pageContent);
+    const response: any = await login(pageContent);
 
     console.log(response);
     
-    if (!response.success) {
+    if (!response?.success) {
       throw new Error(response.error || 'Failed to add paper');
     }
 
@@ -116,10 +116,10 @@ async function handleChatButtonClick() {
   }
 }
 
-// 检查是否在 arXiv 页面
-function isArxivPage() {
-  return window.location.hostname.includes('arxiv.org');
-}
+// // 检查是否在 arXiv 页面
+// function isArxivPage() {
+//   return window.location.hostname.includes('arxiv.org');
+// }
 
 // 创建聊天容器
 function createChatContainer() {
@@ -149,8 +149,8 @@ async function init() {
     
     // 动态导入并挂载 Vue 应用
     try {
-      const { mountChat } = await import('../chat/src/main');
-      mountChat(container);
+      const { mountApp } = await import('./index');
+      mountApp(container);
     } catch (error) {
       console.error('Failed to load chat component:', error);
     }

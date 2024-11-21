@@ -22,7 +22,7 @@
         "src/content-scripts/index.ts"
       ],
       "matches": [
-        "https://*.baidu.com/*"
+        "https://arxiv.org/*"
       ],
       "all_frames": true,
       "run_at": "document_end",

@@ -23,9 +23,15 @@ export default defineConfig({
     //       template: 'src/options/options.html',
     //     }
     //   ],
-    // }),
-
-    crx({ manifest }),
+    crx({
+      manifest: { 
+        ...manifest, 
+        background: { 
+          service_worker: manifest.background.service_worker, 
+          type: 'module' // 修改为 'module'
+        } 
+      } 
+    }),
   ],
   server: {
     port: 3000,
